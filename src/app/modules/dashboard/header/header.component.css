@@ -1,0 +1,32 @@
+.modal-dialog{
+    border: 2px solid white;
+    margin-top: 5rem;
+}
+
+.modal-body{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("/assets/images/loginBanner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: grid;
+    place-items: center;
+    grid-gap: 20px;
+    padding-bottom: 5rem;
+}
+
+.modal-body h5{
+    color: white;
+    margin-top: 5rem;
+    font-size: xx-large;
+}
+
+.modal-body input{
+    margin-top: 10rem;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal-body ngx-otp-input{
+    margin-top: 10rem;
+}

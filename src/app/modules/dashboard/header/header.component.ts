@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxOtpInputConfig } from "ngx-otp-input";
 
 @Component({
   selector: 'app-header',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
   
   constructor(){}
+
     
   ngOnInit(): void {
   }
+
+  otpInputConfig: NgxOtpInputConfig = {
+    otpLength: 6,
+  };
 
 }
