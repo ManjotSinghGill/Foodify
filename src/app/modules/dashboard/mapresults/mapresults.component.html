@@ -4,9 +4,13 @@
         <div class="row">
             <!-- SEARCH MAP -->
             <div class="map-wrapper map-split">
-                <div id="map"></div>
+                <div id="map">
+                    <agm-map [latitude]="lat" [longitude]="long">
+                    </agm-map>
+                </div>
             </div>
             <!-- SEARCH MAP END -->
+            
             <!-- SEARCH -->
             <div id="map-result-section" class="map-result-wrapper">
                 <div class="widget clearfix">
