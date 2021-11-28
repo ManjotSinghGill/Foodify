@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   otpInputConfig: NgxOtpInputConfig = {
-    otpLength: 6,
+    otpLength: 4,
   };
 
 }

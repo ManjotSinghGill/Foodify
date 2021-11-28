@@ -46,7 +46,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Log In</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Log In</button>
                     </li>
                 </ul>
             </div>
@@ -63,7 +63,7 @@
             <div class="modal-body">
                 <h5 class="modal-title" id="loginModalLabel">Log In</h5>
                 <input type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" maxlength="10" />
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#otpModal">Send Otp</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#otpModal" data-dismiss="modal">Send Otp</button>
             </div>
         </div>
     </div>

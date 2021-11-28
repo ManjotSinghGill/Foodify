@@ -42,7 +42,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-md-6 col-lg-3"> <a href="food_results.html" class="btn theme-btn  btn-block">Submit</a> </div>
+                            <div class="col-xs-12 col-md-6 col-lg-3"> <a href="#" class="btn theme-btn  btn-block">Submit</a> </div>
                         </form>
                     </div>
                 </div>
@@ -56,7 +56,8 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="widget-body">
-                        <!-- ADD PRICE SLIDER!! -->
+                        <h5>Filter by price: {{ rangevalue }} €</h5>
+                        <input title="Price_Slider" type="range" min="30" max="300" value="30" (input)="valueChanged($event)">
                     </div>
                 </div>
                 <!-- end:Pricing widget -->
@@ -65,7 +66,7 @@
                         <!-- Each popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food1.jpg">
+                                <div class="figure-wrap food1" data-image-src="/assets/images/food1.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -77,7 +78,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo1.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo1.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -88,7 +89,7 @@
                         <!-- Each popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food2.jpg">
+                                <div class="figure-wrap food2" data-image-src="/assets/images/food2.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -100,7 +101,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo2.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -111,7 +112,7 @@
                         <!-- Each popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food1.jpg">
+                                <div class="figure-wrap food3" data-image-src="/assets/images/food1.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -123,7 +124,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo1.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo1.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -134,7 +135,7 @@
                         <!--  popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food2.jpg">
+                                <div class="figure-wrap food2" data-image-src="/assets/images/food2.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -146,7 +147,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo2.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -157,7 +158,7 @@
                         <!--  popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food2.jpg">
+                                <div class="figure-wrap food3" data-image-src="/assets/images/food2.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -169,7 +170,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo2.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -180,7 +181,7 @@
                         <!--  popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food2.jpg">
+                                <div class="figure-wrap food1" data-image-src="/assets/images/food2.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -192,7 +193,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo2.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -203,7 +204,7 @@
                         <!--  popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food2.jpg">
+                                <div class="figure-wrap food2" data-image-src="/assets/images/food2.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -215,7 +216,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo2.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -226,7 +227,7 @@
                         <!--  popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="images/food2.jpg">
+                                <div class="figure-wrap food3" data-image-src="/assets/images/food2.jpg">
                                     <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
@@ -238,7 +239,7 @@
                                 </div>
                                 <div class="restaurant-block">
                                     <div class="left">
-                                        <a class="pull-left" href="#"> <img src="images/logo2.png" alt="Restaurant logo"> </a>
+                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
                                         <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
                                     </div>
                                     <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>

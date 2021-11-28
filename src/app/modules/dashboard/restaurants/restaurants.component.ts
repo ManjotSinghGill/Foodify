@@ -12,4 +12,10 @@ export class RestaurantsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  rangevalue = 0;
+
+  valueChanged(e: any) {
+    this.rangevalue = e.target.value;
+  }
+
 }

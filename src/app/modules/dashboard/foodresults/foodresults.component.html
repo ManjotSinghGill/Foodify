@@ -119,8 +119,9 @@
                         </h3>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="widget-body">
-                        <!-- ADD PRICE SLIDER !! -->
+                    <div class="widget-body Price-Slider">
+                        <h5>Filter by price: {{ rangevalue }} €</h5>
+                        <input title="Price_Slider" type="range" min="30" max="300" value="30" (input)="valueChanged($event)"> 
                     </div>
                 </div>
                 <!-- end:Pricing widget -->

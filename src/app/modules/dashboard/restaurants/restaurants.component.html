@@ -5,9 +5,9 @@
             <ul class="row links">
                 <li class="col-xs-12 col-sm-3 link-item"><span>1</span><a routerLink="../mapresults">Choose Your Location</a>
                 </li>
-                <li class="col-xs-12 col-sm-3 link-item"><span>2</span><a routerLink="../restaurants">Choose Restaurant</a>
+                <li class="col-xs-12 col-sm-3 link-item active"><span>2</span><a routerLink="../restaurants">Choose Restaurant</a>
                 </li>
-                <li class="col-xs-12 col-sm-3 link-item active"><span>3</span><a routerLink="../foodresults">Pick Your favorite
+                <li class="col-xs-12 col-sm-3 link-item "><span>3</span><a routerLink="../foodresults">Pick Your favorite
                         food</a></li>
                 <li class="col-xs-12 col-sm-3 link-item"><span>4</span><a routerLink="../checkout">Order and Pay online</a>
                 </li>
@@ -119,7 +119,8 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="widget-body">
-                        <!-- ADD PRICE SLIDER-->
+                        <h5>Filter by price: {{ rangevalue }} €</h5>
+                        <input title="Price_Slider" type="range" min="30" max="300" value="30" (input)="valueChanged($event)">
                     </div>
                 </div>
                 <!-- end:Pricing widget -->
