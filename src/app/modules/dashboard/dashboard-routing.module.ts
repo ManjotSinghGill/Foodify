@@ -10,6 +10,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { SubmitComponent } from './submit/submit.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 const routes: Routes = [
   {path: "", component: DashboardCompComponent, 
@@ -23,7 +24,8 @@ const routes: Routes = [
     {path: "checkout", component: CheckoutComponent},
     {path: "pricing", component: PricingComponent},
     {path: "submit", component: SubmitComponent},
-    {path: "contact", component: ContactComponent}
+    {path: "contact", component: ContactComponent},
+    {path: "userprofile", component: UserprofileComponent} 
   ]},
 ];
 
