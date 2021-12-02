@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { MapresultsComponent } from './mapresults/mapresults.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { SubmitComponent } from './submit/submit.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -25,7 +26,8 @@ const routes: Routes = [
     {path: "pricing", component: PricingComponent},
     {path: "submit", component: SubmitComponent},
     {path: "contact", component: ContactComponent},
-    {path: "userprofile", component: UserprofileComponent} 
+    {path: "userprofile", component: UserprofileComponent},
+    {path: "registration", component: RegistrationComponent}
   ]},
 ];
 

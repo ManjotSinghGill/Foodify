@@ -17,6 +17,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { SubmitComponent } from './submit/submit.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     SubmitComponent,
     ContactComponent,
     UserprofileComponent,
+    RegistrationComponent,
   ],
   imports: [
     CommonModule,
