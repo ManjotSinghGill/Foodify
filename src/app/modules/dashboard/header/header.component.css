@@ -35,3 +35,8 @@
 .btn-danger{
     background-color: #FF3300;
 }
+
+.navbar-brand{
+    margin-right: 0;
+    margin-left: auto;
+}
