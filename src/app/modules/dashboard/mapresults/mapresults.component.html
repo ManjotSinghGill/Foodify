@@ -64,6 +64,30 @@
                 <div class="search-result-wrapper">
                     <div class="row">
                         <!-- Each popular food item starts -->
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item" *ngFor="let item of foodItemsArray">
+                            <div class="food-item-wrap">
+                                <div class="figure-wrap food1" data-image-src="/assets/images/food1.jpg">
+                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
+                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                            class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="review pull-right"><a routerLink="../profile">198 reviews</a> </div>
+                                </div>
+                                <div class="content">
+                                    <h5><a routerLink="../profile">{{item.name}}</a></h5>
+                                    <div class="product-name">{{item.description}}</div>
+                                    <div class="price-btn-block"> <span class="price">₹ {{item.price}}</span> <a routerLink="../profile"
+                                            class="btn theme-btn-dash pull-right">Order Now</a> </div>
+                                </div>
+                                <div class="restaurant-block">
+                                    <div class="left">
+                                        <div class="pull-left right-text"> <a routerLink="../profile">{{item.restname}}</a> <span>68 5th
+                                                Avenue New York</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Each popular food item starts -->
                         <div class="col-xs-12 col-sm-6 col-md-6 food-item">
                             <div class="food-item-wrap">
                                 <div class="figure-wrap food1" data-image-src="/assets/images/food1.jpg">
@@ -109,144 +133,6 @@
                             </div>
                         </div>
                         <!-- Each popular food item starts -->
-                        <!-- Each popular food item starts -->
-                        <div class="col-xs-12 col-sm-6 col-md-6 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap food3" data-image-src="/assets/images/food1.jpg">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 15,99</span> <a href="#" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="/assets/images/logo1.png" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                    <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item ends -->
-                        <!--  popular food item starts -->
-                        <div class="col-xs-12 col-sm-6 col-md-6 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap food2" data-image-src="/assets/images/food2.jpg">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 18,49</span> <a href="#" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                    <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item ends -->
-                        <!--  popular food item starts -->
-                        <div class="col-xs-12 col-sm-6 col-md-6 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap food3" data-image-src="/assets/images/food2.jpg">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 18,49</span> <a href="#" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                    <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item ends -->
-                        <!--  popular food item starts -->
-                        <div class="col-xs-12 col-sm-6 col-md-6 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap food1" data-image-src="/assets/images/food2.jpg">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 18,49</span> <a href="#" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                    <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item ends -->
-                        <!--  popular food item starts -->
-                        <div class="col-xs-12 col-sm-6 col-md-6 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap food2" data-image-src="/assets/images/food2.jpg">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 18,49</span> <a href="#" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                    <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item ends -->
-                        <!--  popular food item starts -->
-                        <div class="col-xs-12 col-sm-6 col-md-6 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap food3" data-image-src="/assets/images/food2.jpg">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 18,49</span> <a href="#" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="/assets/images/logo2.png" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                    <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item ends -->
                         <div class="col-xs-12">
                             <nav aria-label="...">
                                 <ul class="pagination">

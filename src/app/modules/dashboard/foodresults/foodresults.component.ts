@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-foodresults',
@@ -7,15 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodresultsComponent implements OnInit {
 
-  constructor() { }
+  baseUrl = environment.baseUrl;
+  foodArray: any = [];
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    for (let index = 1; index < 5; index++) {
+      let url = this.baseUrl + '/menuitems/?restaurant=' + String(index);
+      this.http.get<any>(url).subscribe( res => {
+        for (let index = 0; index < res.length; index++) {
+          this.foodArray.push(res[index]);
+        }
+      })
+    }
   }
 
-  rangevalue = 0;
+  foodList: any = this.foodArray;
 
+  //Price Slider
+  rangevalue = 0;
   valueChanged(e: any) {
     this.rangevalue = e.target.value;
+  }
+
+  updateFoodList(category: any){
+    console.log(category);
+    if(category == 'all'){
+      this.foodList = this.foodArray;
+    }
+    else{
+      this.foodList = []
+      for (let index = 0; index < this.foodArray.length; index++) {
+        if(this.foodArray[index].category == category || this.foodArray[index].name.includes(category)){
+          this.foodList.push(this.foodArray[index])
+        }
+      }
+    }
   }
 
 }

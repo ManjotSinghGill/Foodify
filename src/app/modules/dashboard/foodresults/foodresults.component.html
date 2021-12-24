@@ -22,75 +22,25 @@
         <!-- end:Container -->
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <p><span class="primary-color"><strong>124</strong></span> Results so far</p>
-            </div>
-            <div class="col-sm-9">
-                <select title="Breadcrumbs" class="custom-select pull-right">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="result-show"></div>
-</div>
 
 <!-- //results show -->
 <section class="restaurants-page">
     <div class="container">
         <div class="row">
+
             <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
                 <div class="sidebar clearfix m-b-20">
                     <div class="main-block">
                         <div class="sidebar-title white-txt">
                             <h6>Choose Cusine</h6> <i class="fa fa-cutlery pull-right"></i>
                         </div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-field"
-                                placeholder="Search your favorite food"> <span class="input-group-btn">
-                                <button title="button" class="btn btn-secondary search-btn" type="button"><i
-                                        class="fa fa-search"></i></button>
-                            </span>
+                        <div class="btn-group-vertical">
+                            <button type="button" class="btn btn-light" (click)="updateFoodList('all')">All</button>
+                            <button type="button" class="btn btn-light" (click)="updateFoodList('meal')">Meal</button>
+                            <button type="button" class="btn btn-light" (click)="updateFoodList('Fried')">Fried</button>
+                            <button type="button" class="btn btn-light" (click)="updateFoodList('snacks')">Snacks</button>
+                            <button type="button" class="btn btn-light" (click)="updateFoodList('salad')">Salad</button>
                         </div>
-                        <form>
-                            <ul>
-                                <li>
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"> <span
-                                            class="custom-control-indicator"></span> <span
-                                            class="custom-control-description">Barbecuing and Grilling</span> </label>
-                                </li>
-                                <li>
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"> <span
-                                            class="custom-control-indicator"></span> <span
-                                            class="custom-control-description">Appetizers</span> </label>
-                                </li>
-                                <li>
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"> <span
-                                            class="custom-control-indicator"></span> <span
-                                            class="custom-control-description">Soup and salads</span> </label>
-                                </li>
-                                <li>
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"> <span
-                                            class="custom-control-indicator"></span> <span
-                                            class="custom-control-description">Seafood</span> </label>
-                                </li>
-                                <li>
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"> <span
-                                            class="custom-control-indicator"></span> <span
-                                            class="custom-control-description">Beverages</span> </label>
-                                </li>
-                            </ul>
-                        </form>
                         <div class="clearfix"></div>
                     </div>
                     <!-- end:Sidebar nav -->
@@ -120,8 +70,8 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="widget-body Price-Slider">
-                        <h5>Filter by price: {{ rangevalue }} €</h5>
-                        <input title="Price_Slider" type="range" min="30" max="300" value="30" (input)="valueChanged($event)"> 
+                        <h5>Filter by price: {{ rangevalue }} ₹</h5>
+                        <input title="Price_Slider" type="range" min="30" max="1000" value="30" (input)="valueChanged($event)"> 
                     </div>
                 </div>
                 <!-- end:Pricing widget -->
@@ -135,22 +85,13 @@
                     </div>
                     <div class="widget-body">
                         <ul class="tags">
-                            <li> <a href="#" class="tag">
-                                    Pizza
+                            <li> <a href='javascript:;' (click)="updateFoodList('fries')" class="tag">
+                                    Fries
                                 </a> </li>
-                            <li> <a href="#" class="tag">
-                                    Sendwich
+                            <li> <a href='javascript:;' (click)="updateFoodList('nuggets')" class="tag">
+                                    Nuggets
                                 </a> </li>
-                            <li> <a href="#" class="tag">
-                                    Sendwich
-                                </a> </li>
-                            <li> <a href="#" class="tag">
-                                    Fish
-                                </a> </li>
-                            <li> <a href="#" class="tag">
-                                    Desert
-                                </a> </li>
-                            <li> <a href="#" class="tag">
+                            <li> <a href='javascript:;' (click)="updateFoodList('salad')" class="tag">
                                     Salad
                                 </a> </li>
                         </ul>
@@ -162,7 +103,7 @@
             <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
                 <div class="row">
                     <!-- Each popular food item starts -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item" *ngFor="let item of foodList">
                         <div class="food-item-wrap">
                             <div class="figure-wrap food1" data-image-src="/assets/images/food1.jpg">
                                 <div class="distance"><i class="fa fa-pin"></i>1240m</div>
@@ -172,148 +113,14 @@
                                 <div class="review pull-right"><a routerLink="../profile">198 reviews</a> </div>
                             </div>
                             <div class="content">
-                                <h5><a routerLink="../profile">The South"s Best Fried Chicken</a></h5>
-                                <div class="product-name">Fried Chicken with cheese</div>
-                                <div class="price-btn-block"> <span class="price">$ 15,99</span> <a routerLink="../profile"
+                                <h5><a routerLink="../profile">{{item.name}}</a></h5>
+                                <div class="product-name">{{item.description}}</div>
+                                <div class="price-btn-block"> <span class="price">₹ {{item.price}}</span> <a routerLink="../profile"
                                         class="btn theme-btn-dash pull-right">Order Now</a> </div>
                             </div>
                             <div class="restaurant-block">
                                 <div class="left">
-                                    <a class="pull-left" routerLink="../profile"> <img src="/assets/images/logo1.png" alt="Restaurant logo">
-                                    </a>
-                                    <div class="pull-left right-text"> <a routerLink="../profile">Chicken Restaurant</a> <span>68 5th
-                                            Avenue New York</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Each popular food item starts -->
-                    <!-- Each popular food item starts -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                        <div class="food-item-wrap">
-                            <div class="figure-wrap food2" data-image-src="/assets/images/food2.jpg">
-                                <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="review pull-right"><a routerLink="../profile">198 reviews</a> </div>
-                            </div>
-                            <div class="content">
-                                <h5><a routerLink="../profile">The South"s Best Fried Chicken</a></h5>
-                                <div class="product-name">Fried Chicken with cheese</div>
-                                <div class="price-btn-block"> <span class="price">$ 18,49</span> <a routerLink="../profile"
-                                        class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                            </div>
-                            <div class="restaurant-block">
-                                <div class="left">
-                                    <a class="pull-left" routerLink="../profile"> <img src="/assets/images/logo2.png" alt="Restaurant logo">
-                                    </a>
-                                    <div class="pull-left right-text"> <a routerLink="../profile">Chicken Restaurant</a> <span>68 5th
-                                            Avenue New York</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Each popular food item starts -->
-                    <!-- Each popular food item starts -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                        <div class="food-item-wrap">
-                            <div class="figure-wrap food3" data-image-src="/assets/images/food3.jpg">
-                                <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="review pull-right"><a routerLink="../profile">198 reviews</a> </div>
-                            </div>
-                            <div class="content">
-                                <h5><a routerLink="../profile">The South"s Best Fried Chicken</a></h5>
-                                <div class="product-name">Fried Chicken with cheese</div>
-                                <div class="price-btn-block"> <span class="price">$ 21,19</span> <a routerLink="../profile"
-                                        class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                            </div>
-                            <div class="restaurant-block">
-                                <div class="left">
-                                    <a class="pull-left" routerLink="../profile"> <img src="/assets/images/logo3.png" alt="Restaurant logo">
-                                    </a>
-                                    <div class="pull-left right-text"> <a routerLink="../profile">Chicken Restaurant</a> <span>68 5th
-                                            Avenue New York</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Each popular food item starts -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                        <div class="food-item-wrap">
-                            <div class="figure-wrap food3" data-image-src="/assets/images/food3.jpg">
-                                <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="review pull-right"><a routerLink="../profile">198 reviews</a> </div>
-                            </div>
-                            <div class="content">
-                                <h5><a routerLink="../profile">The South"s Best Fried Chicken</a></h5>
-                                <div class="product-name">Fried Chicken with cheese</div>
-                                <div class="price-btn-block"> <span class="price">$ 21,19</span> <a routerLink="../profile"
-                                        class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                            </div>
-                            <div class="restaurant-block">
-                                <div class="left">
-                                    <a class="pull-left" routerLink="../profile"> <img src="/assets/images/logo3.png" alt="Restaurant logo">
-                                    </a>
-                                    <div class="pull-left right-text"> <a routerLink="../profile">Chicken Restaurant</a> <span>68 5th
-                                            Avenue New York</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Each popular food item starts -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                        <div class="food-item-wrap">
-                            <div class="figure-wrap food1" data-image-src="/assets/images/food1.jpg">
-                                <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="review pull-right"><a routerLink="../profile">198 reviews</a> </div>
-                            </div>
-                            <div class="content">
-                                <h5><a routerLink="../profile">The South"s Best Fried Chicken</a></h5>
-                                <div class="product-name">Fried Chicken with cheese</div>
-                                <div class="price-btn-block"> <span class="price">$ 21,19</span> <a routerLink="../profile"
-                                        class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                            </div>
-                            <div class="restaurant-block">
-                                <div class="left">
-                                    <a class="pull-left" routerLink="../profile"> <img src="/assets/images/logo3.png" alt="Restaurant logo">
-                                    </a>
-                                    <div class="pull-left right-text"> <a routerLink="../profile">Chicken Restaurant</a> <span>68 5th
-                                            Avenue New York</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Each popular food item starts -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                        <div class="food-item-wrap">
-                            <div class="figure-wrap food2" data-image-src="/assets/images/food2.jpg">
-                                <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="review pull-right"><a routerLink="../profile">198 reviews</a> </div>
-                            </div>
-                            <div class="content">
-                                <h5><a routerLink="../profile">The South"s Best Fried Chicken</a></h5>
-                                <div class="product-name">Fried Chicken with cheese</div>
-                                <div class="price-btn-block"> <span class="price">$ 21,19</span> <a routerLink="../profile"
-                                        class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                            </div>
-                            <div class="restaurant-block">
-                                <div class="left">
-                                    <a class="pull-left" routerLink="../profile"> <img src="/assets/images/logo3.png" alt="Restaurant logo">
-                                    </a>
-                                    <div class="pull-left right-text"> <a routerLink="../profile">Chicken Restaurant</a> <span>68 5th
+                                    <div class="pull-left right-text"> <a routerLink="../profile">{{item.restname}}</a> <span>68 5th
                                             Avenue New York</span> </div>
                                 </div>
                             </div>

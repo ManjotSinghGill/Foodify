@@ -3,3 +3,21 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.btn-group-vertical{
+    border-radius: 20px;
+    display: block;
+}
+
+.btn-light{
+    background-color: white;
+    margin-bottom: 3px;
+}
+
+.btn-light:hover{
+    background-color: #fd8d71;
+}
+
+.sidebar-title{
+    margin-bottom: 10px;
+}

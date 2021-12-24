@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mapresults',
@@ -9,9 +11,19 @@ export class MapresultsComponent implements OnInit {
 
   lat = 28.704060;
   long = 77.102493;
-  constructor() { }
+  baseUrl = environment.baseUrl;
+  foodItemsArray: any = [];
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    for (let index = 1; index < 5; index++) {
+      let url = this.baseUrl + '/menuitems/?restaurant=' + String(index);
+      this.http.get<any>(url).subscribe( res => {
+        for (let index = 0; index < res.length; index++) {
+          this.foodItemsArray.push(res[index]);
+        }
+      })
+    }
   }
 
   rangevalue = 0;
