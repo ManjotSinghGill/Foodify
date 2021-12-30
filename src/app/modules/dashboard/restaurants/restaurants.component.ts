@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,11 +11,17 @@ export class RestaurantsComponent implements OnInit {
 
   baseUrl = environment.baseUrl;
   restauratnDetail: any;
+  token = "Bearer " + localStorage.getItem("token");
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     let url = this.baseUrl + '/restaurantdetail/';
-    this.http.get<any>(url).subscribe( res => {
+    this.http.get<any>(url, {
+      headers: new HttpHeaders({
+        'Authorization': this.token
+      })
+    }).subscribe( res => {
       this.restauratnDetail = res.data;
     })
   }

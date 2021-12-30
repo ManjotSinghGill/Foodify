@@ -47,8 +47,8 @@
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Log In</button>
+                    <li class="nav-item" >
+                        <button id="loginBtn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Log In</button>
                     </li>
                 </ul>
             </div>
@@ -64,8 +64,8 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h5 class="modal-title" id="loginModalLabel">Log In</h5>
-                <input type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" maxlength="10" />
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#otpModal" data-dismiss="modal">Send Otp</button>
+                <input id="mobile" type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" maxlength="10" />
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#otpModal" data-dismiss="modal" (click)='getMobile()' >Send Otp</button>
             </div>
         </div>
     </div>
@@ -76,8 +76,8 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h5 class="modal-title" id="exampleModalLabel">ENTER OTP</h5>
-                <ngx-otp-input [config]="otpInputConfig"></ngx-otp-input>
-                <button type="button" class="btn btn-danger">SUBMIT</button>
+                <ngx-otp-input id="otp" [config]="otpInputConfig"></ngx-otp-input>
+                <button type="button" class="btn btn-danger" (click)='login()' (click)="setLogout" data-dismiss="modal" routerLink="./userprofile">SUBMIT</button>
             </div>
         </div>
     </div>
