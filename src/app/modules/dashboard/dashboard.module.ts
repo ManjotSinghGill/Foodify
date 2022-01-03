@@ -14,7 +14,6 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PricingComponent } from './pricing/pricing.component';
-import { SubmitComponent } from './submit/submit.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -32,7 +31,6 @@ import { RegistrationComponent } from './registration/registration.component';
     ProfileComponent,
     CheckoutComponent,
     PricingComponent,
-    SubmitComponent,
     ContactComponent,
     UserprofileComponent,
     RegistrationComponent,

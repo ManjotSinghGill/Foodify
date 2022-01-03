@@ -16,6 +16,10 @@ export class FoodresultsComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getFoodList();
+  }
+
+  getFoodList(){
     for (let index = 1; index < 5; index++) {
       let url = this.baseUrl + '/menuitems/?restaurant=' + String(index);
       this.http.get<any>(url, {

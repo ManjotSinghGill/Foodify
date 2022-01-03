@@ -37,15 +37,30 @@ export class HeaderComponent implements OnInit {
   login(){
     let url = this.baseUrl + '';
     console.log(this.data);
-    this.http.post(url,this.data).subscribe( res => {
+    /*this.http.post(url,this.data).subscribe( res => {
       console.log(res);
       this.token = res;
       localStorage.setItem('token', this.token);
-    })
+    })*/
   }
 
-  setLogout(){
-    const element = document.getElementById('loginBtn');
-    element?.replaceWith("HEllo");
+  logout(){
+    //localStorage.removeItem('token');
+    window.alert("You have been logged out!")
+  }
+
+  toggleButton(){
+    let login: any = document.getElementById("loginBtn");
+    let logout: any = document.getElementById("logoutBtn");
+
+    if(logout.style.display == "none"){
+      login.style.display = "none";
+      logout.style.display = "inline-block";
+    }
+    else{
+      login.style.display = "inline-block";
+      logout.style.display = "none";
+    }
+
   }
 }

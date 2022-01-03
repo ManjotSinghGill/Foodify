@@ -1,0 +1,17 @@
+.restname{
+    color: white;
+    font-size: 2rem;
+}
+
+.fa-trash{
+    color: red;
+    cursor: pointer;
+}
+
+.cart-addon .food-item .rest-descr {
+    margin-left: 0;
+}
+
+.modal{
+    margin-top: 10rem;
+}

@@ -76,7 +76,7 @@
                                 <div class="content">
                                     <h5><a routerLink="../profile">{{item.name}}</a></h5>
                                     <div class="product-name">{{item.description}}</div>
-                                    <div class="price-btn-block"> <span class="price">₹ {{item.price}}</span> <a routerLink="../profile"
+                                    <div class="price-btn-block"> <span class="price">₹ {{item.price}}</span> <a [routerLink]="['../profile', item.restaurant]"
                                             class="btn theme-btn-dash pull-right">Order Now</a> </div>
                                 </div>
                                 <div class="restaurant-block">
