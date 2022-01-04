@@ -112,12 +112,12 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
                             <div class="entry-logo">
-                                <a class="img-fluid" routerLink="../profile"><img src='' alt="Food logo"></a>
+                                <a class="img-fluid" [routerLink]="['../profile', restaurant.id]"><img src='' alt="Food logo"></a>
                             </div>
                             <!-- end:Logo -->
                             <div class="entry-dscr">
-                                <h5><a routerLink="../profile">{{restaurant.name}}</a></h5><span>Burgers, American, Sandwiches,
-                                    Fast Food, BBQ,urgers, American, Sandwiches <a routerLink="../profile">...</a></span>
+                                <h5><a [routerLink]="['../profile', restaurant.id]">{{restaurant.name}}</a></h5><span>Burgers, American, Sandwiches,
+                                    Fast Food, BBQ,urgers, American, Sandwiches <a [routerLink]="['../profile', restaurant.id]">...</a></span>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><i class="fa fa-map-marker"></i>{{restaurant.address}}</li>
                                     <li class="list-inline-item"><i class="fa fa-store-slash"></i>{{restaurant.closing_time}}</li>

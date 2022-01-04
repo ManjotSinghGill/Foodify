@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-userprofile',
@@ -9,22 +7,13 @@ import { environment } from 'src/environments/environment';
 })
 export class UserprofileComponent implements OnInit {
 
-  baseUrl = environment.baseUrl;
-  customerData: any;
-  token = "Bearer " + localStorage.getItem("token");
+  user: any = localStorage.getItem('user');
+  customerData = JSON.parse(this.user);
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {
-    let url = this.baseUrl + '/customer/1/';
-    this.http.get<any>(url, {
-      headers: new HttpHeaders({
-        'Authorization': this.token,
-      })
-    }).subscribe( res => {
-      console.log(res)
-      this.customerData = res;
-    })
+    console.log(this.customerData);
   }
 
 }

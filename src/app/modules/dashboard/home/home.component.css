@@ -12,3 +12,15 @@
 .icon-white{
     color: white;
 }
+
+.how-it-works{
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("/assets/images/pattern.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.spacer{
+    display: block;
+    margin: 30px;
+}

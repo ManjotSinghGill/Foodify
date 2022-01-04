@@ -15,3 +15,26 @@
 .modal{
     margin-top: 10rem;
 }
+
+.quantity-left-minus{
+    padding: 7px 10px;
+}
+
+.quantity-right-plus{
+    padding: 7px 10px;
+    
+}
+
+#quantity{
+    padding: 4px 0;
+    width: 45px;
+}
+
+.cart-addon .food-item .form-control {
+    margin-top: 0;
+}
+
+.input-group{
+    margin-top: 10px;
+    margin-left: 10px;
+}

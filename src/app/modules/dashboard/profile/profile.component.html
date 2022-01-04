@@ -170,7 +170,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-lg-8">
                                     <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="/assets/images/food4.jpg"
+                                        <a class="restaurant-logo pull-left" href=""><img src="/assets/images/food4.jpg"
                                                 alt="Food logo"></a>
                                     </div>
                                     <!-- end:Logo -->
@@ -183,44 +183,7 @@
                                 <!-- end:col -->
                                 <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info">
                                     <span class="price pull-left">{{item.price}}</span>
-                                    <button type='button' class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#item.id">&#43;</button>
-                                </div>
-                                <div class="modal fade" [id]="item.id" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body cart-addon">
-                                                <div class="food-item white">
-                                                    <div class="row">
-                                                        <div class="col-xs-12 col-sm-6 col-lg-6">
-                                                            <div class="item-img pull-left">
-                                                                <a class="restaurant-logo img-thumbnail pull-left" href="#"><img src="/assets/images/food4.jpg" alt="Food logo"></a>
-                                                            </div>
-                                                            <!-- end:Logo -->
-                                                            <div class="rest-descr">
-                                                                <h6>{{item.name}}</h6>
-                                                            </div>
-                                                            <!-- end:Description -->
-                                                        </div>
-                                                        <!-- end:col -->
-                                                        <div class="col-xs-6 col-sm-2 col-lg-2 text-xs-center"> <span class="price pull-left">₹ {{item.price}}</span></div>
-                                                        <div class="col-xs-6 col-sm-4 col-lg-4">
-                                                            <div class="row no-gutter">
-                                                                <div class="col-xs-7 pull-right">
-                                                                    <input class="form-control" type="number" value="1" min="1" max="10" id="quant-input-2 orderCount"> 
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- end:row -->
-                                                </div>
-                                                <!-- end:Food item -->
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn theme-btn" data-dismiss="modal" (click)="order(item)">Add to cart</button>
-                                            </div>
-                                       </div>
-                                    </div>
+                                    <button type='button' class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#orderModal" (click)="setVariable(item)">&#43;</button>
                                 </div>
                             </div>
                             <!-- end:row -->
@@ -243,9 +206,9 @@
                         </div>
                         <div class="order-row bg-white">
                             <div class="widget-body">
-                                <div class="title-row" *ngFor="let order of orderItems.list_of_items">{{order.name}}
+                                <div class="title-row" *ngFor="let item of orderItems.list_of_items">{{item.name}}
                                     <button title="button" type="reset" class="pull-right" (click)="resetOrder()" ><i class="fa fa-trash"></i></button>
-                                    <p>Count: {{order.count}}</p>
+                                    <p>Count: {{item.count}}</p>
                                 </div>
                             </div>
                         </div>
@@ -285,3 +248,53 @@
     <!-- end:Container -->
 </div>
 <app-footer></app-footer>
+
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body cart-addon">
+                <div class="food-item white">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-lg-6">
+                            <div class="item-img pull-left">
+                                <a class="restaurant-logo img-thumbnail pull-left" href="#"><img src="/assets/images/food4.jpg" alt="Food logo"></a>
+                            </div>
+                            <!-- end:Logo -->
+                            <div class="rest-descr">
+                                <h6>{{object.name}}</h6>
+                            </div>
+                            <!-- end:Description -->
+                        </div>
+                        <!-- end:col -->
+                        <div class="col-xs-6 col-sm-2 col-lg-2 text-xs-center"> <span class="price pull-left">₹ {{object.price}}</span></div>
+                        <div class="col-xs-6 col-sm-4 col-lg-4">
+                            <div class="row no-gutter">
+                                <div class="col-xs-7 ">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="quantity-left-minus btn btn-danger" (click)="decrement()">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                        </span>
+                                        <input type="text" id="quantity" value="1">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="quantity-right-plus btn btn-success" (click)="increment()">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end:row -->
+                </div>
+                <!-- end:Food item -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn theme-btn" data-dismiss="modal" (click)="order(object.name, object.restaurant, object.price)" >Add to cart</button>
+            </div>
+       </div>
+    </div>
+</div>

@@ -39,15 +39,9 @@
     <!--end:Hero inner -->
 </section>
 <!-- banner part ends -->
-<!-- location match part starts -->
-<div class="location-match text-xs-center">
-    <div class="container"> <span>356 restaurants matched your location: <span class="primary-color">New York, NY
-                -</span> </span>
-    </div>
-</div>
-<!-- location match part ends -->
+<div class="spacer"></div>
 <!-- Popular block starts -->
-<section class="popular">
+<section class="popular" *ngIf="isLogged == 'true'">
     <div class="container">
         <div class="title text-xs-center m-b-30">
             <h2>Popular This Month In Your City</h2>
@@ -64,16 +58,16 @@
                         <div class="review pull-right"><a href="#">198 reviews</a> </div>
                     </div>
                     <div class="content">
-                        <h5><a [routerLink]="['./profile', item.restaurant]">{{item.name}}</a></h5>
+                        <h5><a [routerLink]="['../profile', item.restaurant]">{{item.name}}</a></h5>
                         <div class="product-name">{{item.description}}</div>
-                        <div class="price-btn-block"> <span class="price">₹ {{item.price}}</span> <a [routerLink]="['./profile', item.restaurant]"
+                        <div class="price-btn-block"> <span class="price">₹ {{item.price}}</span> <a [routerLink]="['../profile', item.restaurant]"
                                 class="btn theme-btn-dash pull-right">Order Now</a> </div>
                     </div>
                     <div class="restaurant-block">
                         <div class="left">
                             <a class="pull-left" [routerLink]="['./profile', item.restaurant]"> <img src="/assets/images/logo1.png" alt="Restaurant logo" />
                             </a>
-                            <div class="pull-left right-text"> <a [routerLink]="['./profile', item.restaurant]">Chicken Restaurant</a> <span>68 5th Avenue
+                            <div class="pull-left right-text"> <a [routerLink]="['../profile', item.restaurant]">Chicken Restaurant</a> <span>68 5th Avenue
                                     New York</span> </div>
                         </div>
                         <div class="right-like-part pull-right"> <i class="fa fa-heart-o"></i> <span>48</span> </div>
@@ -133,7 +127,7 @@
 </section>
 <!-- How it works block ends -->
 <!-- Featured restaurants starts -->
-<section class="featured-restaurants">
+<section class="featured-restaurants" *ngIf="isLogged == 'true'">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/shared/auth.guard';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactComponent } from './contact/contact.component';
 import { DashboardCompComponent } from './dashboard-comp/dashboard-comp.component';
@@ -17,11 +18,11 @@ const routes: Routes = [
   children: [
     {path: "", component: HomeComponent},
     {path: "home", component: HomeComponent},
-    {path: "foodresults", component: FoodresultsComponent},
-    {path: "mapresults", component: MapresultsComponent},
-    {path: "restaurants", component: RestaurantsComponent},
-    {path: "profile/:id", component: ProfileComponent},
-    {path: "checkout", component: CheckoutComponent},
+    {path: "foodresults", component: FoodresultsComponent, canActivate:[AuthGuard]},
+    {path: "mapresults", component: MapresultsComponent, canActivate:[AuthGuard]},
+    {path: "restaurants", component: RestaurantsComponent, canActivate:[AuthGuard]},
+    {path: "profile/:id", component: ProfileComponent, canActivate:[AuthGuard]},
+    {path: "checkout", component: CheckoutComponent, canActivate:[AuthGuard]},
     {path: "pricing", component: PricingComponent},
     {path: "contact", component: ContactComponent},
     {path: "userprofile", component: UserprofileComponent},

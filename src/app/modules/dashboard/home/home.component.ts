@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -12,12 +12,15 @@ export class HomeComponent implements OnInit {
   baseUrl = environment.baseUrl;
   restDetailArray: any;
   foodArray: any = [];
+  isLogged = localStorage.getItem('isLogged');
   token = "Bearer " + localStorage.getItem("token");
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.getRestaurant();
-    this.getFoodList();
+    if(this.isLogged == 'true'){
+      this.getRestaurant();
+      this.getFoodList();
+    }
   }
 
   getRestaurant(){

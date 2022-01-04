@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxOtpInputModule } from 'ngx-otp-input';
 import { AgmCoreModule } from '@agm/core';
+import { FormsModule } from '@angular/forms';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardCompComponent } from './dashboard-comp/dashboard-comp.component';
@@ -41,7 +42,8 @@ import { RegistrationComponent } from './registration/registration.component';
     NgxOtpInputModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAyT52XFVgpWCphXSqdq9zReFhf2jXBE5o'
-    })
+    }),
+    FormsModule
   ]
 })
 export class DashboardModule { }

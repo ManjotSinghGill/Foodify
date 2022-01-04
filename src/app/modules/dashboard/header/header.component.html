@@ -16,34 +16,30 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Food</a>
+                            aria-haspopup="true" aria-expanded="false">Browse</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" routerLink="./foodresults">Food results</a>
+                            <a class="dropdown-item" routerLink="./restaurants">Restaurants</a>
+                            <a class="dropdown-item" routerLink="./foodresults">Dishes</a>
                             <a class="dropdown-item" routerLink="./mapresults">Map results</a>
                         </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="./restaurants">Restaurants</a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Pages</a>
                         <div class="dropdown-menu">
+                            <a class="dropdown-item" routerLink="./userprofile" *ngIf="isLoggedIn()">{{tempData.user.name}}</a>
                             <a class="dropdown-item" routerLink="./pricing">Pricing</a>
                             <a class="dropdown-item" routerLink="./contact">Contact</a>
-                            <a class="dropdown-item" routerLink="./registration">Registration</a>
+                            <a class="dropdown-item" routerLink="./registration" *ngIf='!isLoggedIn()'>Registration</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" routerLink="./checkout">Checkout</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" routerLink="./userprofile">User Profile</a>
                         </div>
                     </li>
 
                     <li class="nav-item" >
-                        <button id="loginBtn"  type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Log In</button>
-                        <button id="logoutBtn" routerLink="./home"(click)='logout()' (click)='toggleButton()' type="button" class="btn btn-danger" style="display: none;">Log Out</button>
+                        <button id="loginBtn"  type="button" class="btn btn-danger"  data-toggle="modal" data-target="#loginModal">Log In</button>
+                        <button id="logoutBtn" routerLink="./home"(click)='logout()' type="button" class="btn btn-danger" style="display: none;">Log Out</button>
                     </li>
                 </ul>
             </div>
@@ -54,13 +50,13 @@
 
 
   <!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" #content>
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <h5 class="modal-title" id="loginModalLabel">Log In</h5>
                 <input placeholder="Phone Number" id="mobile" type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" maxlength="10" />
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#otpModal" data-dismiss="modal" (click)='getMobile()' >Send Otp</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#otpModal" data-dismiss="modal" (click)='send_otp()' >Send Otp</button>
             </div>
         </div>
     </div>
@@ -72,7 +68,7 @@
             <div class="modal-body">
                 <h5 class="modal-title" id="exampleModalLabel">ENTER OTP</h5>
                 <ngx-otp-input id="otp" [config]="otpInputConfig"></ngx-otp-input>
-                <button type="button" class="btn btn-danger" (click)='login()' (click)='toggleButton()' data-dismiss="modal" routerLink="./userprofile">SUBMIT</button>
+                <button type="button" class="btn btn-danger" (click)='login()' (click)="toggleButton()" data-dismiss="modal">SUBMIT</button>
             </div>
         </div>
     </div>

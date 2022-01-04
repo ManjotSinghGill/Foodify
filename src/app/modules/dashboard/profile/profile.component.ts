@@ -14,7 +14,8 @@ export class ProfileComponent implements OnInit {
 
   orderCount: any;
   count: any;
-
+  quantity: any;
+  object: any;
   id: string;
   baseUrl = environment.baseUrl;
   menuItems: any;
@@ -57,20 +58,35 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  order(data :any){
-    this.orderItems.rest_id = String(data.restaurant);
-    this.orderItems.customer_id = "1";
-    this.orderItems.total_amount += data.price;
-    if(this.orderItems.list_of_items.find(x => x.name == data.name)){
-      let index = this.orderItems.list_of_items.findIndex(x => x.name === data.name)
-      this.orderItems.list_of_items[index].count += 1;
+  increment(){
+    this.quantity = document.getElementById('quantity');
+    this.count = Number(this.quantity.value);
+    this.count += 1;
+    this.quantity.value = String(this.count);
+  }
+
+  decrement(){
+    this.quantity = document.getElementById('quantity');
+    this.count = Number(this.quantity.value);
+    this.count -= 1;
+    this.quantity.value = String(this.count);
+  }
+
+  setVariable(data: any){
+    this.object = data;
+  }
+
+  order(name: any, rest_id: any, price: any){
+    this.orderItems.rest_id = rest_id;
+    this.orderItems.customer_id = '1'
+    if(this.orderItems.list_of_items.find(x => x.name == name)){
+      let index = this.orderItems.list_of_items.findIndex(x => x.name == name)
+      this.orderItems.list_of_items[index].count += this.count;
+      this.orderItems.total_amount += Number(price) * this.count;
     }
     else{
-      let temp = {
-        name: data.name,
-        count: 1
-      }
-      this.orderItems.list_of_items.push(temp);
+      this.orderItems.list_of_items.push({name: name, count: this.count});
+      this.orderItems.total_amount += Number(price) * this.count;
     }
     console.log(this.orderItems);
   }
