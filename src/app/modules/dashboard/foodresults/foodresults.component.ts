@@ -11,7 +11,6 @@ export class FoodresultsComponent implements OnInit {
 
   baseUrl = environment.baseUrl;
   foodArray: any = [];
-  token = "Bearer " + localStorage.getItem("token");
   
   constructor(private http: HttpClient) { }
 
@@ -20,13 +19,9 @@ export class FoodresultsComponent implements OnInit {
   }
 
   getFoodList(){
-    for (let index = 1; index < 5; index++) {
+    for (let index = 1; index < 11; index++) {
       let url = this.baseUrl + '/menuitems/?restaurant=' + String(index);
-      this.http.get<any>(url, {
-        headers: new HttpHeaders({
-          'Authorization': this.token
-        })
-      }).subscribe( res => {
+      this.http.get<any>(url).subscribe( res => {
         for (let index = 0; index < res.length; index++) {
           this.foodArray.push(res[index]);
         }

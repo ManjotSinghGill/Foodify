@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/shared/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,12 +11,12 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthService) { }
 
   orderCount: any;
-  count: any;
+  count: any = 1;
   quantity: any;
-  object: any;
+  object: any = null;
   id: string;
   baseUrl = environment.baseUrl;
   menuItems: any;
@@ -26,7 +27,9 @@ export class ProfileComponent implements OnInit {
       total_amount: 0,
       list_of_items: []
     };
-  token = "Bearer " + localStorage.getItem("token");
+  temp: any= localStorage.getItem('user');
+  user: any = JSON.parse(this.temp);
+  token = "Bearer " + localStorage.getItem('token');
 
 
   ngOnInit(): void {
@@ -34,26 +37,18 @@ export class ProfileComponent implements OnInit {
     this.getRestmenu();
     this.getRest();
   }
-  
 
   getRestmenu(){
     let url = this.baseUrl + '/menuitems/?restaurant=' + this.id;
-    this.http.get<any>(url, {
-      headers: new HttpHeaders({
-        'Authorization': this.token
-      })
-    }).subscribe( res => {
+    this.http.get<any>(url).subscribe( res => {
       this.menuItems = res;
+      console.log(this.menuItems);
     })
   }
 
   getRest(){
     let url = this.baseUrl + '/restaurantdetail/' + this.id;
-    this.http.get<any>(url, {
-      headers: new HttpHeaders({
-        'Authorization': this.token
-      })
-    }).subscribe( res => {
+    this.http.get<any>(url).subscribe( res => {
       this.restDetail = res;
     })
   }
@@ -76,16 +71,16 @@ export class ProfileComponent implements OnInit {
     this.object = data;
   }
 
-  order(name: any, rest_id: any, price: any){
+  order(id: any, rest_id: any, price: any){
     this.orderItems.rest_id = rest_id;
-    this.orderItems.customer_id = '1'
-    if(this.orderItems.list_of_items.find(x => x.name == name)){
-      let index = this.orderItems.list_of_items.findIndex(x => x.name == name)
-      this.orderItems.list_of_items[index].count += this.count;
+    let item = this.orderItems.list_of_items;
+
+    if(item == ''){
+      this.orderItems.list_of_items = String(id);
       this.orderItems.total_amount += Number(price) * this.count;
     }
     else{
-      this.orderItems.list_of_items.push({name: name, count: this.count});
+      this.orderItems.list_of_items = item + ',' +  String(id);
       this.orderItems.total_amount += Number(price) * this.count;
     }
     console.log(this.orderItems);
@@ -100,5 +95,23 @@ export class ProfileComponent implements OnInit {
     };
   }
   
+  postOrder(){
+    if(this.auth.isLoggedIn()){
+      console.log(this.user.id);
+      this.orderItems.customer_id = String(this.user.id);
+      console.log(this.orderItems);
+      let url = this.baseUrl + '/order/';
+      this.http.post(url, this.orderItems, {
+        headers: new HttpHeaders({
+          'Authorization': this.token
+        })
+      }).subscribe(res => {
+        console.log(res);
+      })
+    }
+    else{
+      window.alert("Please Log In to post an order!")
+    }
+  }
 
 }

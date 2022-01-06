@@ -206,9 +206,8 @@
                         </div>
                         <div class="order-row bg-white">
                             <div class="widget-body">
-                                <div class="title-row" *ngFor="let item of orderItems.list_of_items">{{item.name}}
+                                <div class="title-row" *ngIf="orderItems.list_of_items != ''">{{orderItems.list_of_items}}
                                     <button title="button" type="reset" class="pull-right" (click)="resetOrder()" ><i class="fa fa-trash"></i></button>
-                                    <p>Count: {{item.count}}</p>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +233,7 @@
                                 <p>TOTAL</p>
                                 <h3 class="value"><strong>₹ {{orderItems.total_amount}}</strong></h3>
                                 <p>Free Shipping</p>
-                                <button onclick="location.routerLink='../checkout'" type="button"
+                                <button (click)='postOrder()' type="button"
                                     class="btn theme-btn btn-lg">Checkout</button>
                             </div>
                         </div>
@@ -249,7 +248,7 @@
 </div>
 <app-footer></app-footer>
 
-<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-hidden="true" *ngIf="object != null">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body cart-addon">
@@ -293,7 +292,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn theme-btn" data-dismiss="modal" (click)="order(object.name, object.restaurant, object.price)" >Add to cart</button>
+                <button type="button" class="btn theme-btn" data-dismiss="modal" (click)="order(object.id, object.restaurant, object.price)" >Add to cart</button>
             </div>
        </div>
     </div>

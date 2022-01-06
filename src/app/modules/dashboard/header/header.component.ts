@@ -3,6 +3,7 @@ import { NgxOtpInputConfig } from "ngx-otp-input";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,15 +19,17 @@ export class HeaderComponent implements OnInit {
   phoneNumber: any;
   OneTimePass: any;
   tempData: any;
+  user: any;
   data: any ={
     phone: "",
     otp: ""
   };
-  constructor(private http: HttpClient, public router:Router){}
+  constructor(private http: HttpClient, public router:Router, private auth: AuthService){}
   
     
   ngOnInit(): void {
-    this.isLogged = localStorage.getItem('isLogged');
+    let temp: any = localStorage.getItem('user');
+    this.user = JSON.parse(temp);
   }
 
   otpInputConfig: NgxOtpInputConfig = {
@@ -55,9 +58,8 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('token', this.tempData.token);
       localStorage.setItem('isLogged', 'true');
       localStorage.setItem('user', JSON.stringify(this.tempData.user));
+      this.user = this.tempData.user;
     })
-    this.ngOnInit();
-    this.router.navigate(['./userprofile']);
   }
 
   logout(){
@@ -65,7 +67,6 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('user');
     localStorage.setItem('isLogged', 'false');
     window.alert("You have been logged out!")
-    this.toggleButton();
   }
 
   toggleButton(){

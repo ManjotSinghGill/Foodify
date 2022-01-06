@@ -1,3 +1,35 @@
+h1{
+  text-align: center;
+  padding: 1rem;
+}
+
+.orderBox{
+  margin: 1rem 3rem;
+}
+
+.orderBox h2{
+  font-weight: 900;
+}
+
+.orderCard{
+  width: 18rem;
+  margin: 5px;
+}
+
+.orderCard p{
+  padding: 0;
+}
+
+.card-text{
+  margin: 0;
+}
+
+.rest_name a{
+  color: black;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
 :root {
   --blue: #5e72e4;
   --indigo: #5603ad;

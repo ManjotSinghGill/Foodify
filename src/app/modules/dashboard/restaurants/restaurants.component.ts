@@ -12,7 +12,6 @@ export class RestaurantsComponent implements OnInit {
   baseUrl = environment.baseUrl;
   restDetailArray: any;
   restDetail: any;
-  token = "Bearer " + localStorage.getItem("token");
 
   constructor(private http: HttpClient) { }
 
@@ -22,12 +21,8 @@ export class RestaurantsComponent implements OnInit {
 
   getRestaurant(){
     let url = this.baseUrl + '/restaurantdetail/';
-    this.http.get<any>(url, {
-      headers: new HttpHeaders({
-        'Authorization': this.token
-      })
-    }).subscribe( res => {
-      this.restDetailArray = res.data;
+    this.http.get<any>(url).subscribe( res => {
+      this.restDetailArray = res;
       this.restDetail = this.restDetailArray;
     })
   }
@@ -38,7 +33,7 @@ export class RestaurantsComponent implements OnInit {
     this.rangevalue = e.target.value;
   }
 
-  updateFoodList(category: any){
+  updateRestList(category: any){
     console.log(category);
     if(category == 'all'){
       this.restDetail = this.restDetailArray;

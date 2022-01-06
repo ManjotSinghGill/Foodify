@@ -28,18 +28,17 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Pages</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" routerLink="./userprofile" *ngIf="isLoggedIn()">{{tempData.user.name}}</a>
+                            <a class="dropdown-item" [routerLink]="['./userprofile', user.id]" *ngIf='isLoggedIn()'>User Profile</a>
                             <a class="dropdown-item" routerLink="./pricing">Pricing</a>
                             <a class="dropdown-item" routerLink="./contact">Contact</a>
-                            <a class="dropdown-item" routerLink="./registration" *ngIf='!isLoggedIn()'>Registration</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" routerLink="./checkout">Checkout</a>
                         </div>
                     </li>
 
                     <li class="nav-item" >
-                        <button id="loginBtn"  type="button" class="btn btn-danger"  data-toggle="modal" data-target="#loginModal">Log In</button>
-                        <button id="logoutBtn" routerLink="./home"(click)='logout()' type="button" class="btn btn-danger" style="display: none;">Log Out</button>
+                        <button *ngIf="!isLoggedIn()" id="loginBtn"  type="button" class="btn btn-danger"  data-toggle="modal" data-target="#loginModal">Log In</button>
+                        <button *ngIf="isLoggedIn()" id="logoutBtn" routerLink="./home"(click)='logout()' type="button" class="btn btn-danger">Log Out</button>
                     </li>
                 </ul>
             </div>
@@ -68,7 +67,7 @@
             <div class="modal-body">
                 <h5 class="modal-title" id="exampleModalLabel">ENTER OTP</h5>
                 <ngx-otp-input id="otp" [config]="otpInputConfig"></ngx-otp-input>
-                <button type="button" class="btn btn-danger" (click)='login()' (click)="toggleButton()" data-dismiss="modal">SUBMIT</button>
+                <button type="button" class="btn btn-danger" (click)='login()' data-dismiss="modal">SUBMIT</button>
             </div>
         </div>
     </div>

@@ -33,11 +33,9 @@
                             <h6>Choose Cusine</h6> <i class="fa fa-cutlery pull-right"></i>
                         </div>
                         <div class="btn-group-vertical">
-                            <button type="button" class="btn btn-light">All</button>
-                            <button type="button" class="btn btn-light">Meal</button>
-                            <button type="button" class="btn btn-light">Fried</button>
-                            <button type="button" class="btn btn-light">Snacks</button>
-                            <button type="button" class="btn btn-light">Salad</button>
+                            <button type="button" class="btn btn-light" (click)='updateRestList("all")'>All</button>
+                            <button type="button" class="btn btn-light" (click)='updateRestList("chinease")'>Chinese</button>
+                            <button type="button" class="btn btn-light" (click)='updateRestList("Fast food")'>Fast Food</button>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -112,14 +110,14 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
                             <div class="entry-logo">
-                                <a class="img-fluid" [routerLink]="['../profile', restaurant.id]"><img src='' alt="Food logo"></a>
+                                <a class="img-fluid" [routerLink]="['../profile', restaurant.id]"><img src='/assets/images/logo7.png' alt="Food logo"></a>
                             </div>
                             <!-- end:Logo -->
                             <div class="entry-dscr">
                                 <h5><a [routerLink]="['../profile', restaurant.id]">{{restaurant.name}}</a></h5><span>Burgers, American, Sandwiches,
                                     Fast Food, BBQ,urgers, American, Sandwiches <a [routerLink]="['../profile', restaurant.id]">...</a></span>
                                 <ul class="list-inline">
-                                    <li class="list-inline-item"><i class="fa fa-map-marker"></i>{{restaurant.address}}</li>
+                                    <li class="list-inline-item"><i class="fa fa-map-marker"></i>{{restaurant.city}}</li>
                                     <li class="list-inline-item"><i class="fa fa-store-slash"></i>{{restaurant.closing_time}}</li>
                                 </ul>
                             </div>
@@ -128,74 +126,15 @@
                         <div class="col-sm-12 col-md-12 col-lg-4 text-xs-center">
                             <div class="right-content bg-white">
                                 <div class="right-review">
-                                    <div class="rating-block"><h5>Rating: {{restaurant.rating}}/5</h5></div>
+                                    <div class="rating-block">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
                                     <p> 245 Reviews</p> <a [routerLink]="['../profile', restaurant.id]"
                                     class="btn theme-btn-dash">View Menu</a>
-                                </div>
-                            </div>
-                            <!-- end:right info -->
-                        </div>
-                    </div>
-                    <!--end:row -->
-                </div>
-                <!-- end:Restaurant entry -->
-                
-                <div class="bg-gray restaurant-entry">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
-                            <div class="entry-logo">
-                                <a class="img-fluid" routerLink="../profile"><img src="/assets/images/logo6.png" alt="Food logo"></a>
-                            </div>
-                            <!-- end:Logo -->
-                            <div class="entry-dscr">
-                                <h5><a routerLink="../profile">Maenaam Thai Restaurant</a></h5> <span>Burgers, American, Sandwiches,
-                                    Fast Food, BBQ,urgers, American, Sandwiches <a routerLink="../profile">...</a></span>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item"><i class="fa fa-check"></i> Min $ 10,00</li>
-                                    <li class="list-inline-item"><i class="fa fa-motorcycle"></i> 30 min</li>
-                                </ul>
-                            </div>
-                            <!-- end:Entry description -->
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-4 text-xs-center">
-                            <div class="right-content bg-white">
-                                <div class="right-review">
-                                    <div class="rating-block"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                            class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> </div>
-                                    <p> 245 Reviews</p> <a routerLink="../profile" class="btn theme-btn-dash">View Menu</a>
-                                </div>
-                            </div>
-                            <!-- end:right info -->
-                        </div>
-                    </div>
-                    <!--end:row -->
-                </div>
-                <!-- end:Restaurant entry -->
-                <div class="bg-gray restaurant-entry">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
-                            <div class="entry-logo">
-                                <a class="img-fluid" routerLink="../profile"><img src="/assets/images/logo7.png" alt="Food logo"></a>
-                            </div>
-                            <!-- end:Logo -->
-                            <div class="entry-dscr">
-                                <h5><a routerLink="../profile">Maenaam Thai Restaurant</a></h5> <span>Burgers, American, Sandwiches,
-                                    Fast Food, BBQ,urgers, American, Sandwiches <a routerLink="../profile">...</a></span>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item"><i class="fa fa-check"></i> Min $ 10,00</li>
-                                    <li class="list-inline-item"><i class="fa fa-motorcycle"></i> 30 min</li>
-                                </ul>
-                            </div>
-                            <!-- end:Entry description -->
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-4 text-xs-center">
-                            <div class="right-content bg-white">
-                                <div class="right-review">
-                                    <div class="rating-block"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                            class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> </div>
-                                    <p> 245 Reviews</p> <a routerLink="../profile" class="btn theme-btn-dash">View Menu</a>
                                 </div>
                             </div>
                             <!-- end:right info -->

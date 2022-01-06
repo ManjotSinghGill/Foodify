@@ -9,7 +9,12 @@
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputAmount">I would like to eat....</label>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" id="exampleInputAmount" placeholder="I would like to eat....">
+                            <form #search="ngForm" >
+                                <input list="results" name="browser" type="text" class="form-control form-control-lg" id="exampleInputAmount" placeholder="I would like to eat...." ngModel>
+                                    <datalist id="results">
+                                        <option value="Internet Explorer">
+                                    </datalist>
+                            </form>
                         </div>
                     </div>
                     <button onclick="location.href='#'" type="button" class="btn theme-btn btn-lg">Search
@@ -41,7 +46,7 @@
 <!-- banner part ends -->
 <div class="spacer"></div>
 <!-- Popular block starts -->
-<section class="popular" *ngIf="isLogged == 'true'">
+<section class="popular">
     <div class="container">
         <div class="title text-xs-center m-b-30">
             <h2>Popular This Month In Your City</h2>
@@ -59,7 +64,7 @@
                     </div>
                     <div class="content">
                         <h5><a [routerLink]="['../profile', item.restaurant]">{{item.name}}</a></h5>
-                        <div class="product-name">{{item.description}}</div>
+                        <div class="product-name">{{item.description | slice:0:110 }}</div>
                         <div class="price-btn-block"> <span class="price">₹ {{item.price}}</span> <a [routerLink]="['../profile', item.restaurant]"
                                 class="btn theme-btn-dash pull-right">Order Now</a> </div>
                     </div>
@@ -127,7 +132,7 @@
 </section>
 <!-- How it works block ends -->
 <!-- Featured restaurants starts -->
-<section class="featured-restaurants" *ngIf="isLogged == 'true'">
+<section class="featured-restaurants">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -140,11 +145,9 @@
                 <div class="restaurants-filter pull-right">
                     <nav class="primary pull-left">
                         <ul>
-                            <li><a href="#" class="selected" data-filter="*">Grill</a> </li>
-                            <li><a href="#" data-filter=".pizza">Pizza</a> </li>
-                            <li><a href="#" data-filter=".pasta">Pasta</a> </li>
-                            <li><a href="#" data-filter=".thaifood">thai food</a> </li>
-                            <li><a href="#" data-filter=".fish">fish</a> </li>
+                            <li><a (click)="updateRestList('all')" class="selected" data-filter="*">Featured</a> </li>
+                            <li><a (click)="updateRestList('chinease')" data-filter=".pizza">Chinese</a> </li>
+                            <li><a (click)="updateRestList('Fast food')" data-filter=".pasta">Fast Food</a> </li>
                         </ul>
                     </nav>
                 </div>
@@ -154,7 +157,7 @@
         <!-- restaurants listing starts -->
         <div class="row">
             <div class="restaurant-listing">
-                <div class="col-xs-12 col-sm-12 col-md-6 single-restaurant" *ngFor="let restaurant of restDetailArray">
+                <div class="col-xs-12 col-sm-12 col-md-6 single-restaurant" *ngFor="let restaurant of restDetail.slice(0, 6);">
                     <div class="restaurant-wrap">
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-12 col-lg-3 text-xs-center">
@@ -186,23 +189,6 @@
             </div>
         </div>
         <!-- restaurants listing ends -->
-        <!-- add restaurant starts -->
-        <section class="add-restaurants">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-3 add-title">
-                        <h4>Add Your Restaurant</h4>
-                    </div>
-                    <div class="col-xs-12 col-sm-5 join-text">
-                        <p>Join the thousands of other restaurants who benefit from having their menus on <a
-                                href="#"><strong> FoodPicky directory</strong></a> </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 join-btn text-xs-right"><a href="#" class="btn theme-btn btn-lg">I‘m
-                            restaurant</a> </div>
-                </div>
-            </div>
-        </section>
-        <!-- add restaurant ends -->
     </div>
 </section>
 <app-footer></app-footer>

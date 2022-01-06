@@ -17,7 +17,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -34,7 +33,6 @@ import { RegistrationComponent } from './registration/registration.component';
     PricingComponent,
     ContactComponent,
     UserprofileComponent,
-    RegistrationComponent,
   ],
   imports: [
     CommonModule,

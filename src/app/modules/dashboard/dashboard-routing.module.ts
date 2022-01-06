@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { MapresultsComponent } from './mapresults/mapresults.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
@@ -18,15 +17,14 @@ const routes: Routes = [
   children: [
     {path: "", component: HomeComponent},
     {path: "home", component: HomeComponent},
-    {path: "foodresults", component: FoodresultsComponent, canActivate:[AuthGuard]},
-    {path: "mapresults", component: MapresultsComponent, canActivate:[AuthGuard]},
-    {path: "restaurants", component: RestaurantsComponent, canActivate:[AuthGuard]},
-    {path: "profile/:id", component: ProfileComponent, canActivate:[AuthGuard]},
-    {path: "checkout", component: CheckoutComponent, canActivate:[AuthGuard]},
+    {path: "foodresults", component: FoodresultsComponent},
+    {path: "mapresults", component: MapresultsComponent},
+    {path: "restaurants", component: RestaurantsComponent},
+    {path: "profile/:id", component: ProfileComponent},
+    {path: "checkout", component: CheckoutComponent},
     {path: "pricing", component: PricingComponent},
     {path: "contact", component: ContactComponent},
-    {path: "userprofile", component: UserprofileComponent},
-    {path: "registration", component: RegistrationComponent}
+    {path: "userprofile/:id", component: UserprofileComponent},
   ]},
 ];
 
