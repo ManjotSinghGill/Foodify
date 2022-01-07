@@ -206,7 +206,7 @@
                         </div>
                         <div class="order-row bg-white">
                             <div class="widget-body">
-                                <div class="title-row" *ngIf="orderItems.list_of_items != ''">{{orderItems.list_of_items}}
+                                <div class="title-row" *ngFor="let item of orderList">{{item}}
                                     <button title="button" type="reset" class="pull-right" (click)="resetOrder()" ><i class="fa fa-trash"></i></button>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn theme-btn" data-dismiss="modal" (click)="order(object.id, object.restaurant, object.price)" >Add to cart</button>
+                <button type="button" class="btn theme-btn" data-dismiss="modal" (click)="order(object.id, object.restaurant, object.price, object.name)" >Add to cart</button>
             </div>
        </div>
     </div>

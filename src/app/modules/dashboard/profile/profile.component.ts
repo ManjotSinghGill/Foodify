@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
   baseUrl = environment.baseUrl;
   menuItems: any;
   restDetail: any;
+  orderList: any=[];
   orderItems: any= {
       rest_id: '',
       customer_id: '',
@@ -71,9 +72,10 @@ export class ProfileComponent implements OnInit {
     this.object = data;
   }
 
-  order(id: any, rest_id: any, price: any){
+  order(id: any, rest_id: any, price: any, name: any){
     this.orderItems.rest_id = rest_id;
     let item = this.orderItems.list_of_items;
+    this.orderList.push(name);
 
     if(item == ''){
       this.orderItems.list_of_items = String(id);
@@ -93,6 +95,7 @@ export class ProfileComponent implements OnInit {
       total_amount: 0,
       list_of_items: []
     };
+    this.orderList = [];
   }
   
   postOrder(){
